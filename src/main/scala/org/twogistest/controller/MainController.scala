@@ -1,8 +1,8 @@
-package controller
+package org.twogistest.controller
 
 import cats.data.Reader
 import cats.effect.IO
-import configuration.AppEnvironment
+import org.twogistest.configuration.AppEnvironment
 import io.circe.generic.auto.exportEncoder
 import org.http4s.HttpRoutes
 import org.http4s.circe.CirceEntityCodec.circeEntityEncoder

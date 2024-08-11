@@ -1,0 +1,4 @@
+-J-Xms512M
+-J-Xmx5120M
+-J-Xss1M
+-J-XX:+CMSClassUnloadingEnabledS

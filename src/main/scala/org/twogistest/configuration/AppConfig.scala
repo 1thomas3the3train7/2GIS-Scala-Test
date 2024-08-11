@@ -1,13 +1,29 @@
-package configuration
+package org.twogistest.configuration
 
 import pureconfig.ConfigSource
 import pureconfig.generic.auto._
 
+
+/**
+ * `HttpConfig` - это case class, которая содержит конфигурацию для HTTP сервера.
+ *
+ * @param host Хост, на котором будет запущен HTTP сервер.
+ * @param port Порт, на котором будет запущен HTTP сервер.
+ */
 case class HttpConfig(host: String, port: Int)
-case class DbConfig(url: String, user: String, password: String, driver: String, poolSize: Int)
-case class FlywayConf(url: String, user: String, password: String, baseLineOnMigrate: Boolean)
-case class AppConfig(http: HttpConfig, db: DbConfig, flyway: FlywayConf)
+
+/**
+ * `AppConfig` - это case class, которая содержит общую конфигурацию приложения.
+ *
+ * @param http Конфигурация HTTP сервера.
+ */
+case class AppConfig(http: HttpConfig)
 
 object AppConfig {
+  /**
+   * Загружает конфигурацию приложения из файла `application.conf`.
+   *
+   * @return Загруженная конфигурация приложения.
+   */
   def load(): AppConfig = ConfigSource.default.loadOrThrow[AppConfig]
 }
