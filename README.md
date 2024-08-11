@@ -20,3 +20,11 @@
 docker build -t 2gistest-app .
 
 docker-compose up
+
+# API
+
+Один единственный метод POST /data (http://localhost:8080/data)
+
+Тело запроса должно содержать массив URL в формате JSON. Например:
+
+["https://www.deepl.com/ru/translator", "https://www.google.com/"]
